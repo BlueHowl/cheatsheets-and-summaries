@@ -56,4 +56,5 @@ Jupyter notebooks are very useful when it comes to Data Science. Unfortunatly th
 <br>
 
 > **Note :**
-> This document hasn't been done by AI
+> This document hasn't been done by AI \
+> Made by Quentin Barthélemy (BlueHowl)

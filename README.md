@@ -21,4 +21,5 @@ In most cases, if you're only adding content, I will approve the PR directly, bu
 <br>
 
 > **Note :**
-> This document hasn't been done by AI
+> This document hasn't been done by AI \
+> Made by Quentin Barthélemy (BlueHowl)
