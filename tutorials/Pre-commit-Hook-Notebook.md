@@ -1,4 +1,4 @@
-# Installing git pre-commit hook for juptyer notebooks
+# Installing git pre-commit hook for jupiter notebooks
 
 **Source** :  [*medium.com : version-control-on-jupyter-notebooks*](https://medium.com/somosfit/version-control-on-jupyter-notebooks-6b67a0cf12a3)
 
@@ -50,7 +50,7 @@ Jupyter notebooks are very useful when it comes to Data Science. Unfortunatly th
 <br>
 
 > **<span style="color:yellow">⚠ WARNING :</span>** \
-> In order to preperly run jupyter nbconvert tool :
+> In order to properly run jupyter nbconvert tool :
 > Install : jupyter_contrib_nbextensions
 >
 > CONDA : \
