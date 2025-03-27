@@ -18,16 +18,32 @@ Jupyter notebooks are very useful when it comes to Data Science. Unfortunatly th
 
 - Then copy paste this script Inside pre-commit file :
     - 
-    LINUX : \
-        ```#!/bin/sh
-        jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace notebooks/*.ipynb
-        git add .```
+    LINUX[[2]](#footnotes) :
+
+        #!/bin/sh
+
+        git diff --name-only -- '*.ipynb' > /tmp/changed_notebooks.txt
+        git diff --cached --name-only -- '*.ipynb' >> /tmp/changed_notebooks.txt
+
+        sort -u /tmp/changed_notebooks.txt > /tmp/unique_notebooks.txt
+
+        while IFS= read -r notebook; do
+            jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "$notebook"
+        done < /tmp/unique_notebooks.txt
+
+        rm -f /tmp/changed_notebooks.txt /tmp/unique_notebooks.txt
+
+        git add .
 
 
-    WINDOWS : \
-        ```#!/bin/bash
-        jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace notebooks/*.ipynb
-        git add .``` [[2]](#footnotes)
+    WINDOWS :
+        
+        #!/bin/bash
+        git diff --name-only -- '.ipynb'
+        git diff --cached --name-only -- '.ipynb' | sort -u | while read notebook; do
+            jupyter nbconvert --ClearOutputPreprocessor.enabled=True --inplace "$notebook"
+        done
+        git add .
 
 
 <br>
@@ -51,10 +67,10 @@ Jupyter notebooks are very useful when it comes to Data Science. Unfortunatly th
 ```ls -la``` or ```dir /a```
 <img src="https://static.vecteezy.com/system/resources/thumbnails/020/975/574/small/window-10-logo-window-10-icon-transparent-free-png.png" width="24" height="24">
 
-[2]: Windows bash script hasn't been tested, let me know if it needs to be fixed.
+[2]: Linux script hasn't been tested, let me know if it needs to be fixed.
 
 <br>
 
 > **Note :**
-> This document hasn't been done by AI \
-> Made by Quentin Barthélemy (BlueHowl)
+> This document hasn't been done with the help AI \
+> Written by Quentin Barthélemy (BlueHowl)
